@@ -2,8 +2,6 @@
 #'
 #' @description Devuelve un json con los nombres de los municipios de España
 #'
-#' @param valor
-#'
 #' @return json
 #'
 #' @examples  municipios_espana("1")
@@ -14,7 +12,7 @@
 #'
 #' @export
 
-municipios_espana <- function(valor = "1"){
+municipios_espana <- function(){
 
   df_descriptivos <- read.csv("./inst/extdata/datos_descriptivos_Espana.csv", sep = ",")
   df_descriptivos <- df_descriptivos[,-1]

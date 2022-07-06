@@ -4,10 +4,7 @@
 \alias{municipios_espana}
 \title{Devuelve un json con los nombres de los municipios de España}
 \usage{
-municipios_espana(valor = "1")
-}
-\arguments{
-\item{valor}{}
+municipios_espana()
 }
 \value{
 json
