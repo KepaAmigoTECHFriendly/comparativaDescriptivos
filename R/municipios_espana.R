@@ -6,7 +6,7 @@
 #'
 #' @return json
 #'
-#' @examples  municipios_espana(1)
+#' @examples  municipios_espana("1")
 #'
 #' @import httr
 #' jsonlite
@@ -14,7 +14,7 @@
 #'
 #' @export
 
-municipios_espana <- function(valor = 1){
+municipios_espana <- function(valor = "1"){
 
   df_descriptivos <- read.csv("./inst/extdata/datos_descriptivos_Espana.csv", sep = ",")
   df_descriptivos <- df_descriptivos[,-1]
