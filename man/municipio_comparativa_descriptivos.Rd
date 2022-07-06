@@ -20,6 +20,6 @@ json
 Integra como telemetría al dispositivo Comparativa - Indicadores descriptivos los datos desciptivos (BBDD MITMA) del municipio demandado
 }
 \examples{
- municipio_comparativa_descriptivos("http://82.223.66.83:8080","74041e60-fc46-11ec-94d8-c1cee3606f2e","Barakaldo")
+ municipio_comparativa_descriptivos("http://82.223.66.83:8080","81006600-fc46-11ec-94d8-c1cee3606f2e","Barakaldo")
 
 }

@@ -1,0 +1,30 @@
+#' @title Devuelve un json con los nombres de los municipios de España
+#'
+#' @description Devuelve un json con los nombres de los municipios de España
+#'
+#' @param valor
+#'
+#' @return json
+#'
+#' @examples  municipios_espana(1)
+#'
+#' @import httr
+#' jsonlite
+#' dplyr
+#'
+#' @export
+
+municipios_espana <- function(valor = 1){
+
+  df_descriptivos <- read.csv("./inst/extdata/datos_descriptivos_Espana.csv", sep = ",")
+  df_descriptivos <- df_descriptivos[,-1]
+  nombre_columnas <- "NombreMun,D.01. Variación de la población 2007 – 2017 (%),D.02.a. Superficie de cobertura artificial por municipio (%).,D.02.b. Superficie de cultivos por municipio (%).,D.03.a. Superficie municipal destinada a explotaciones agrarias y forestales (%).,D.03.b. Superficie destinada a explotaciones agrarias y forestales respecto al suelo urbano y urbanizable delimitado de la ciudad (%).,D.04. Superficie municipal de suelo no urbanizable (%).,D.05. Superficie de zonas verdes por cada 1.000 habitantes.,D.06. Densidad Urbana. Número de habitantes por hectárea de superficie de suelo urbano (hab./ha).,D.07. Superficie de suelo urbano mixto discontinuo sobre suelo urbano mixto total (%),D.08. Densidad de vivienda por superficie de suelo urbano (Viv/ha).,D.09. Compacidad urbana. Superficie construida total por superficie de suelo (m2t/m2s),D.10.a. Superficie construida de uso residencial por superficie de suelo (m2t/m2s),D.10.b. Superficie construida de uso residencial respecto al total de superficie construida (%).,D.ST.01. Densidad de viviendas previstas en las áreas de suelo de desarrollo  (Viv/ha).,D.ST.02. Porcentaje de áreas de suelo de desarrollo respecto al total del suelo urbano (%),D.ST.03. Suelo urbanizable delimitado respecto al total del suelo urbano (%),D.ST.04. Porcentaje de áreas de suelo en desarrollo de uso residencial respecto al total de suelo urbano (%).,D.ST.05. Porcentaje de áreas de suelo en desarrollo de uso actividades económica (industrial o terciario) respecto al total de suelo urbano (%),D.14. Porcentaje del parque edificatorio por municipio con una antigüedad anterior al año 2000 (%).,D.17.a. Superficie de infraestructuras de transporte (ha).,D.17.b. Porcentaje de superficie de infraestructuras de transporte respecto al término municipal (%),D.18.a. Vehículos domiciliados cada 1000 habitantes.,D.18.b. Porcentaje de Turismos (%),D.18.c. Porcentaje de motocicletas (%),D.22.a. Índice de envejecimiento de la población (%),D.22.b. Índice de senectud de la población (%),D.23. Porcentaje de población extranjera (%),D.24.a. Índice de dependencia total (%),D.24.b. Índice de dependencia infantil (%),D.24.c. Índice de dependencia de mayores (%),D.26.a. Trabajadores en sector agricultura (%).,D.26.b. Trabajadores en sector industria (%).,D.26.c. Trabajadores en sector construcción (%).,D.26.d. Trabajadores en sector servicios (%).,D.27.a. Establecimientos en sector agricultura (%).,D.27.b. Establecimientos en sector industria (%).,D.27.c. Establecimientos en sector construcción (%).,D.27.d. Establecimientos en sector servicios (%).,D.28.a. Porcentaje de parados total (%).,D.28.b. Porcentaje de parados entre 25 y 44 años (%),D.28.c. Proporción de paro femenino (%),D.29. Número de viviendas por cada 1.000 habitantes.,D.32. Variación del número de hogares 2001-2011 (%),D.33. Crecimiento del parque de vivienda 2001-2011 (%),D.34. Porcentaje de vivienda secundaria (%).,D.35. Porcentaje de vivienda vacía (%).,D.ST.06. Porcentaje de viviendas previstas en áreas de desarrollo respecto al parque de vivienda existente (%).,D.ST.07. Número de viviendas previstas en las áreas de desarrollo por cada 1.000 habitantes.,D.37. FIGURA DE PLANEAMIENTO URBANÍSTICO VIGENTE EN EL MUNICIPIO,D.38. FECHA DE LA FIGURA DE PLANEAMIENTO URBANÍSTICO VIGENTE EN EL MUNICIPIO."
+  nombre_columnas <- unlist(strsplit(nombre_columnas,","))
+  colnames(df_descriptivos) <- nombre_columnas
+
+  municipios <- paste(df_descriptivos$NombreMun, collapse = '","')
+
+  json_municipios <- paste('{"Municipios": ', toJSON(municipios), '}',sep = "")
+
+  return(json_municipios)
+}
