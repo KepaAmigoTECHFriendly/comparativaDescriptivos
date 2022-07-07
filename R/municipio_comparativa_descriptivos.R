@@ -38,6 +38,7 @@ municipio_comparativa_descriptivos <- function(ip_plataforma, id_dispositivo_com
     df_descriptivos[,i] <- as.numeric(gsub("[,]",".",df_descriptivos[,i]))
 
   }
+  return(1)
 
   # -----------------------------------------------------------------------------
   # PETICIÓN TOKEN THB
