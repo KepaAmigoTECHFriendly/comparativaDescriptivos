@@ -16,7 +16,7 @@
 
 municipio_comparativa_descriptivos <- function(ip_plataforma, id_dispositivo_comparativa, nombre_municipio){
 
-
+  return(1)
   ip_plataforma <- sub("/.*/(.*?)/.*", "\\1", as.character(ip_plataforma))  # Captura hasta la tercera /
   id_dispositivo_comparativa <- as.character(id_dispositivo_comparativa)
   nombre_municipio <- as.character(nombre_municipio)
@@ -38,7 +38,7 @@ municipio_comparativa_descriptivos <- function(ip_plataforma, id_dispositivo_com
     df_descriptivos[,i] <- as.numeric(gsub("[,]",".",df_descriptivos[,i]))
 
   }
-  return(1)
+
 
   # -----------------------------------------------------------------------------
   # PETICIÓN TOKEN THB
