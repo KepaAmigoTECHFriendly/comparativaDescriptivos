@@ -6,6 +6,6 @@ nombre_columnas <- "NombreMun,D.01. Variación de la población 2007 – 2017 (%
 nombre_columnas <- unlist(strsplit(nombre_columnas,","))
 colnames(df_descriptivos) <- nombre_columnas
 
-municipios_espana_json <- as.character(paste(df_descriptivos$NombreMun, collapse = '","'))
-
+municipios_espana_json <- as.character(df_descriptivos$NombreMun)
+#municipios_espana_json <- gsub("\\\\","",municipios_espana_json)
 usethis::use_data(municipios_espana_json, overwrite = TRUE)
