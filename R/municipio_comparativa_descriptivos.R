@@ -79,6 +79,18 @@ municipio_comparativa_descriptivos <- function(ip_plataforma, id_dispositivo_com
                      encode = "json",verbose()
   )
 
+
+  # Post atributo con nombre municipio
+  url <- paste(ip_plataforma,"/api/v1/",token,"/attributes",sep = "")
+  json_envio_plataforma <- paste('{"municipio":', nombre_municipio,'}',sep = "")
+  post <- httr::POST(url = url,
+                     add_headers("Content-Type"="application/json","Accept"="application/json","X-Authorization"=auth_thb),
+                     body = json_envio_plataforma,
+                     verify= FALSE,
+                     encode = "json",verbose()
+  )
+
+
   print("Programa finalizado")
 
   return(json_datos)
